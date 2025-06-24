@@ -1355,6 +1355,60 @@ public:
 		VPhysicsDestroyObject(); 
 	}
 
+	void ScriptSetMass( float flMass ) 
+	{ 
+		IPhysicsObject * vPhys = VPhysicsGetObject();
+		if ( vPhys )
+		{
+			Assert(flMass > 0);
+			vPhys->SetMass( flMass );
+		}
+		else
+		{
+			Warning( "Can't SetMass() on %s, it has no physics.\n", GetEntityName().ToCStr() );
+		} 
+	}
+	
+
+	float ScriptGetMass( void ) const
+	{ 
+		IPhysicsObject *vPhys = VPhysicsGetObject();
+		if ( vPhys )
+		{
+			return vPhys->GetMass();
+		}
+		else
+		{
+			return -1;
+		} 
+	}
+	
+
+	void ScriptSetBuoyancyRatio( float flBuoyancy )
+	{ 
+		IPhysicsObject *vPhys = VPhysicsGetObject();
+		if ( vPhys )
+		{
+			return vPhys->SetBuoyancyRatio( flBuoyancy );
+		}
+		else
+		{
+			Warning( "Can't SetBuoyancyRatio() on %s, it has no physics.\n", GetEntityName().ToCStr() );
+		} 
+	}
+
+
+	void ScriptSetElasticity( float flElasticity ) 
+	{ 
+		SetElasticity( flElasticity );
+	}
+
+	float ScriptGetElasticity(void) const
+	{
+		return m_flElasticity; 
+	}
+
+
 	HSCRIPT ScriptGetModelKeyValues( void );
 
 	void ScriptPrecacheModel( const char *name );
