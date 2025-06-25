@@ -64,6 +64,12 @@ DESCRIPTION INFO_OPTIONS
 		{ BOOL }
 		{ "1" }
 	}
+	"credit2_5"
+	{
+		"Rabscootle - MvM Responses Fixes/Restorations"
+		{ BOOL }
+		{ "1" }
+	}
 	"category4"
 	{
 		"UPDATE: OFFSHORE"

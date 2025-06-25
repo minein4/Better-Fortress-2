@@ -25,6 +25,7 @@
 
 #ifdef GAME_DLL
 ConVar tf_dropped_weapon_lifetime( "tf_dropped_weapon_lifetime", "30", FCVAR_CHEAT ); 
+ConVar tf_mvm_dropped_weapons( "tf_mvm_dropped_weapons", "0", FCVAR_REPLICATED ); 
 
 EXTERN_SEND_TABLE( DT_ScriptCreatedItem );
 
@@ -481,8 +482,15 @@ bool CTFDroppedWeapon::IsVisibleToTargetID( void ) const
 CTFDroppedWeapon *CTFDroppedWeapon::Create( CTFPlayer *pLastOwner, const Vector &vecOrigin, const QAngle &vecAngles, const char *pszModelName, const CEconItemView *pItem )
 {
 	// don't drop weapon in MVM
-	if ( TFGameRules()->IsMannVsMachineMode() )
-		return NULL;
+	if ( TFGameRules()->IsMannVsMachineMode() && pLastOwner )
+	{ 
+		if ( !tf_mvm_dropped_weapons.GetBool() )
+			return NULL;
+		else if ( tf_mvm_dropped_weapons.GetInt() == 2 && pLastOwner->GetTeamNumber() != TF_TEAM_PVE_DEFENDERS )
+			return NULL;
+		else if ( tf_mvm_dropped_weapons.GetInt() == 3 && pLastOwner->GetTeamNumber() != TF_TEAM_PVE_INVADERS )
+			return NULL;
+	}
 
 	int nNumRemoved = 0;
 
@@ -560,7 +568,6 @@ void CTFDroppedWeapon::InitDroppedWeapon( CTFPlayer *pPlayer, CTFWeaponBase *pWe
 
 	m_nSkin = pWeapon->GetSkin();
 	
-	Msg( "Clip: %i\n", pWeapon->GetDefaultClip1() );
 
 	m_nClip = pWeapon->IsEnergyWeapon() ? pWeapon->GetMaxClip1() : pWeapon->Clip1();
 	m_nAmmo = pPlayer ? pPlayer->GetAmmoCount( pWeapon->GetPrimaryAmmoType() ) : pWeapon->GetDefaultClip1();

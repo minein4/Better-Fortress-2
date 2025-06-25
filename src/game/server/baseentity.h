@@ -1403,7 +1403,8 @@ public:
 		SetElasticity( flElasticity );
 	}
 
-	float ScriptGetElasticity(void) const
+
+	float ScriptGetElasticity (void ) const
 	{
 		return m_flElasticity; 
 	}

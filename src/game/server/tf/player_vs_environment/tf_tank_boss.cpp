@@ -903,6 +903,9 @@ void CTFTankBoss::TankBossThink( void )
 		m_isDroppingBomb = false;
 
 		TFGameRules()->BroadcastSound( 255, "Announcer.MVM_Tank_Planted" );
+
+		// rabscootle - MVM Wave Win/Lose Responses
+		TFGameRules()->HaveAllPlayersSpeakConceptIfAllowed( MP_CONCEPT_MVM_WAVE_LOSE, TF_TEAM_PVE_DEFENDERS );
 	}
 
 	// if the Tank is driving under something, shut off its smokestack

@@ -2133,6 +2133,8 @@ void CTFPlayer::MvMDeployBombThink()
 
 				m_deployBombTimer.Start( 2.0f );
 				TFGameRules()->BroadcastSound( 255, "Announcer.MVM_Robots_Planted" );
+				// rabscootle - MVM Wave Win/Lose Responses
+				TFGameRules()->HaveAllPlayersSpeakConceptIfAllowed( MP_CONCEPT_MVM_WAVE_LOSE, TF_TEAM_PVE_DEFENDERS );
 				SetDeployingBombState( TF_BOMB_DEPLOYING_COMPLETE );
 				m_takedamage = DAMAGE_NO;
 				AddEffects( EF_NODRAW );
