@@ -1368,7 +1368,9 @@ bool CObjectSentrygun::FireRocket()
 		
 		// Better Fortress - Rocket Firerate attribute
 		float flRocketFireRate = 3.f;
-		CALL_ATTRIB_HOOK_FLOAT_ON_OTHER( GetOwner(), flRocketFireRate, mult_engy_sentry_rockets_firerate );
+		float flRocketFireRateMod = 1.f;
+		CALL_ATTRIB_HOOK_FLOAT_ON_OTHER( GetOwner(), flRocketFireRateMod, mult_engy_sentry_rockets_firerate );
+		flRocketFireRate /= flRocketFireRateMod;
 
 		if ( m_bPlayerControlled )
 		{
