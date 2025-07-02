@@ -4162,7 +4162,7 @@ void CTFPlayer::Spawn()
 				if(random->RandomInt(0,1) == 1)
 				{
 					AddTag("bot_gatebot");
-					const char *name = g_aRawPlayerClassNamesShort[nRobotClassIndex];
+					const char *name = g_aRawPlayerClassNamesRandom[nRobotClassIndex];
 					GiveItemString( CFmtStr( "MvM GateBot Light %s",name) );
 				}
 				//Spawn the player as Miniboss | 50% chance

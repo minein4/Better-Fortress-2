@@ -103,6 +103,23 @@ const char *g_aRawPlayerClassNames[TF_CLASS_MENU_BUTTONS] =
 	"random"
 };
 
+const char *g_aRawPlayerClassNamesRandom[TF_CLASS_MENU_BUTTONS] =
+{
+	"undefined",
+	"scout",
+	"sniper",
+	"soldier",
+	"demoman",
+	"medic",
+	"heavy",// short
+	"pyro",
+	"spy",
+	"engineer",
+	"civilian",
+	"",
+	"random"
+};
+
 const char g_szBotModels[][ MAX_PATH ] = 
 {
 	"", //TF_CLASS_UNDEFINED
