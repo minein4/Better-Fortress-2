@@ -548,6 +548,15 @@
 			"effect_type"	"neutral"
 			"stored_as_integer"	"0"
 		}
+		"4007"
+		{
+			"name"	"engy sentry rockets firerate bonus"
+			"attribute_class"	"mult_engy_sentry_rockets_firerate"
+			"description_format"	"value_is_additive"
+			"hidden"	"1"
+			"effect_type"	"neutral"
+			"stored_as_integer"	"0"
+		}
 	}
 	"items"
 	{
@@ -1682,7 +1691,7 @@
 		}
 		"32009"
 		{
-			"name"	"Bread Demoman"
+			"name"	"Bread Demo"
 			"item_name" "#TF_Throwable_Bread"
 			"item_type_name" "#TF_Throwable_Type_Bread"
 			"prefab"	"weapon_throwable"

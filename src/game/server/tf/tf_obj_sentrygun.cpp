@@ -1365,14 +1365,20 @@ bool CObjectSentrygun::FireRocket()
 		}
 
 		// Setup next rocket shot
+		
+		// Better Fortress - Rocket Firerate attribute
+		float flRocketFireRate = 3.f;
+		CALL_ATTRIB_HOOK_FLOAT_ON_OTHER( GetOwner(), flRocketFireRate, mult_engy_sentry_rockets_firerate );
+
 		if ( m_bPlayerControlled )
 		{
-			m_flNextRocketAttack = gpGlobals->curtime + 2.25;
+			AddGesture( ACT_RANGE_ATTACK2, ( flRocketFireRate * 0.75f ), true);
+			m_flNextRocketAttack = gpGlobals->curtime + ( flRocketFireRate * 0.75f );
 		}
 		else
 		{
-			AddGesture( ACT_RANGE_ATTACK2 );
-			m_flNextRocketAttack = gpGlobals->curtime + 3;
+			AddGesture( ACT_RANGE_ATTACK2, ( flRocketFireRate ), true );
+			m_flNextRocketAttack = gpGlobals->curtime + ( flRocketFireRate );
 		}
 
 		if ( !tf_sentrygun_ammocheat.GetBool() && !HasSpawnFlags( SF_SENTRY_INFINITE_AMMO ) )
