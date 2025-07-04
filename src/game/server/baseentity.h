@@ -1247,6 +1247,12 @@ public:
 	CNetworkVarForDerived( char, m_lifeState );
 	CNetworkVarForDerived( char , m_takedamage );
 
+	//TF2 Specific
+	CNetworkVarForDerived( bool , m_bExplodesProjectiles );
+	CNetworkVarForDerived( bool , m_bSticksProjectiles );
+	CNetworkVarForDerived( int , m_bCanBeHealed );
+	CNetworkVarForDerived( bool , m_bCanBeTargeted );
+
 	// Damage filtering
 	string_t	m_iszDamageFilterName;	// The name of the entity to use as our damage filter.
 	EHANDLE		m_hDamageFilter;		// The entity that controls who can damage us.
@@ -1365,7 +1371,7 @@ public:
 		}
 		else
 		{
-			Warning( "Can't SetMass() on %s, it has no physics.\n", GetEntityName().ToCStr() );
+			Log_Warning( LOG_VScript, "Entity has no Physics, use MakePhysics function\n" );
 		} 
 	}
 	
@@ -1379,6 +1385,7 @@ public:
 		}
 		else
 		{
+			Log_Warning( LOG_VScript, "Entity has no Physics, use MakePhysics function\n" );
 			return -1;
 		} 
 	}
@@ -1393,7 +1400,7 @@ public:
 		}
 		else
 		{
-			Warning( "Can't SetBuoyancyRatio() on %s, it has no physics.\n", GetEntityName().ToCStr() );
+			Log_Warning( LOG_VScript, "Entity has no Physics, use MakePhysics function\n" );
 		} 
 	}
 
@@ -1409,6 +1416,12 @@ public:
 		return m_flElasticity; 
 	}
 
+	//TF2 Specific
+
+	void ScriptSetExplodeProjectilesOnTouch( bool bValue ) { m_bExplodesProjectiles = bValue; }
+	void ScriptCanStickProjectiles( bool bValue ) { m_bSticksProjectiles = bValue; }
+	void ScriptCanBeHealed( int bValue ) { m_bCanBeHealed = bValue; }
+	void ScriptSetTargetable( bool bValue ) { m_bCanBeTargeted = bValue; }
 
 	HSCRIPT ScriptGetModelKeyValues( void );
 

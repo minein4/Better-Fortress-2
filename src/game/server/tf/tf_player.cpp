@@ -4162,7 +4162,7 @@ void CTFPlayer::Spawn()
 				if(random->RandomInt(0,1) == 1)
 				{
 					AddTag("bot_gatebot");
-					const char *name = g_aRawPlayerClassNamesShort[nRobotClassIndex];
+					const char *name = g_aRawPlayerClassNamesRandom[nRobotClassIndex];
 					GiveItemString( CFmtStr( "MvM GateBot Light %s",name) );
 				}
 				//Spawn the player as Miniboss | 50% chance
@@ -7830,22 +7830,60 @@ bool CTFPlayer::ClientCommand( const CCommand &args )
 		}
 		return true;
 	}
-#ifdef _DEBUG
-	else if ( FStrEq( pcmd, "burn" ) ) 
+	// Better Fortress - Add attribute shortcuts
+	else if ( FStrEq( pcmd, "addgunattribute" ) )
 	{
-		m_Shared.Burn( this, GetActiveTFWeapon() );
+		if ( sv_cheats->GetBool() && args.ArgC() >= 2 )
+		{
+			const CEconItemAttributeDefinition *pDef = GetItemSchema()->GetAttributeDefinitionByName( args[1] );
+			if ( !pDef )
+				return false;
+			GetActiveTFWeapon()->GetAttributeList()->SetRuntimeAttributeValue( pDef, atof(args[2]) );
+		}
 		return true;
 	}
+	else if ( FStrEq( pcmd, "removegunattribute" ) )
+	{
+		if ( sv_cheats->GetBool() && args.ArgC() >= 2 )
+		{
+			const CEconItemAttributeDefinition *pDef = GetItemSchema()->GetAttributeDefinitionByName( args[1] );
+			if ( !pDef )
+				return false;
+			GetActiveTFWeapon()->GetAttributeList()->RemoveAttribute( pDef );
+		}
+		return true;
+	}
+	else if ( FStrEq( pcmd, "addattribute" ) )
+	{
+		if ( sv_cheats->GetBool() && args.ArgC() >= 2 )
+		{
+			AddCustomAttribute( args[1],  atof(args[2]),  atof(args[3]) );
+		}
+		return true;
+	}
+	else if ( FStrEq( pcmd, "removeattribute" ) )
+	{
+		if ( sv_cheats->GetBool() && args.ArgC() >= 2 )
+		{
+			RemoveCustomAttribute( args[1] );
+		}
+		return true;
+	}
+	//else if ( FStrEq( pcmd, "burn" ) ) 
+	//{
+	//	m_Shared.Burn( this, GetActiveTFWeapon() );
+	//	return true;
+	//}
 	else if ( FStrEq( pcmd, "bleed" ) )
 	{
 		m_Shared.MakeBleed( this, GetActiveTFWeapon(), 10.0f );
 		return true;
 	}
-	else if ( FStrEq( pcmd, "dump_damagers" ) )
-	{
-		m_AchievementData.DumpDamagers();
-		return true;
-	}
+	//else if ( FStrEq( pcmd, "dump_damagers" ) )
+	//{
+	//	m_AchievementData.DumpDamagers();
+	//	return true;
+	//}
 	else if ( FStrEq( pcmd, "stun" ) )
 	{
 		if ( args.ArgC() >= 4 )
@@ -7854,16 +7892,16 @@ bool CTFPlayer::ClientCommand( const CCommand &args )
 		}
 		return true;
 	}
-// 	else if ( FStrEq( pcmd, "decoy" ) )
-// 	{
-// 		CBotNPCDecoy *decoy = (CBotNPCDecoy *)CreateEntityByName( "bot_npc_decoy" );
-// 		if ( decoy )
-// 		{
-// 			decoy->SetOwnerEntity( this );
-// 			DispatchSpawn( decoy );
-// 		}
-// 		return true;
-// 	}
+ 	else if ( FStrEq( pcmd, "decoy" ) )
+ 	{
+ 		CBotNPCDecoy *decoy = (CBotNPCDecoy *)CreateEntityByName( "bot_npc_decoy" );
+ 		if ( decoy )
+ 		{
+			decoy->SetOwnerEntity( this );
+ 			DispatchSpawn( decoy );
+		}
+ 		return true;
+ 	}
 	else if ( FStrEq( pcmd, "tada" ) )
 	{
 		if ( ShouldRunRateLimitedCommand( args ) )
@@ -7878,10 +7916,7 @@ bool CTFPlayer::ClientCommand( const CCommand &args )
 //		pPlayer->m_Shared.Disguise( Q_atoi( args[2] ), Q_atoi( args[3] ) );
 //		return true;
 //	}
-	else
-#endif
-
-	if ( FStrEq( pcmd, "jointeam" ) )
+	else if ( FStrEq( pcmd, "jointeam" ) )
 	{
 		// don't let them spam the server with changes
 		if ( GetNextChangeTeamTime() > gpGlobals->curtime )

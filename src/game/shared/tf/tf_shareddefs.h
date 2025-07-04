@@ -231,6 +231,7 @@ extern const char *g_aPlayerClassNames[TF_CLASS_MENU_BUTTONS];				// localizatio
 extern const char *g_aPlayerClassNames_NonLocalized[TF_CLASS_MENU_BUTTONS];	// non-localized class names
 extern const char *g_aRawPlayerClassNamesShort[TF_CLASS_MENU_BUTTONS];		// raw class names, useful for formatting resource/material filenames - "heavy" instead of "heavyweapons" and "demo" instead of "demoman"
 extern const char *g_aRawPlayerClassNames[TF_CLASS_MENU_BUTTONS];			// raw class names, useful for formatting resource/material filenames
+extern const char *g_aRawPlayerClassNamesRandom[TF_CLASS_MENU_BUTTONS];			// raw class names, useful for formatting resource/material filenames
 
 extern const char g_szPlayerRobotModels[TF_LAST_NORMAL_CLASS][ MAX_PATH ];
 
