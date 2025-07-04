@@ -123,7 +123,6 @@
 					"ACT_SECONDARY_VM_INSPECT_END"			"ACT_ITEM1_VM_INSPECT_END"
 				}
 			}
-			"xifier_class_remap"	"jarate"
 			"mouse_pressed_sound"	"ui/item_bottle_pickup.wav"
 			"drop_sound"		"ui/item_bottle_drop.wav"
 		}
@@ -544,6 +543,15 @@
 		{
 			"name"	"robotrobotrobotrobot"
 			"attribute_class"	"robotrobotrobotrobot"
+			"description_format"	"value_is_additive"
+			"hidden"	"1"
+			"effect_type"	"neutral"
+			"stored_as_integer"	"0"
+		}
+		"4007"
+		{
+			"name"	"engy sentry rockets firerate bonus"
+			"attribute_class"	"mult_engy_sentry_rockets_firerate"
 			"description_format"	"value_is_additive"
 			"hidden"	"1"
 			"effect_type"	"neutral"
@@ -1324,191 +1332,6 @@
 				"min_viewmodel_offset"		"10 0 -11"				
 			}
 		}	
-		// Throwable Bread
-		"32001"
-		{
-			"name"	"Throwable Bread"
-			"item_name" "#TF_Throwable_Bread"
-			"item_type_name" "#TF_Throwable_Type_Bread"
-			"prefab"	"weapon_throwable"
-			"attributes"
-			{
-				"projectile entity name"
-				{
-					"attribute_class"	"projectile_entity_name"
-					"value"				"tf_projectile_throwable_brick" 
-				}
-			}
-			"visuals"
-			{
-				"styles"
-				{
-					"0"
-					{
-						"skin_red" "0"
-						"skin_blu" "1"
-						"model_player" "models/weapons/c_models/c_bread/c_bread_plainloaf.mdl"
-					}
-					"1"
-					{
-						"skin_red" "0"
-						"skin_blu" "1"
-						"model_player" "models/weapons/c_models/c_bread/c_bread_ration.mdl"
-					}
-					"2"
-					{
-						"skin_red" "0"
-						"skin_blu" "1"
-						"model_player" "models/weapons/c_models/c_bread/c_bread_burnt.mdl"
-					}
-					"3"
-					{
-						"skin_red" "0"
-						"skin_blu" "1"
-						"model_player" "models/weapons/c_models/c_bread/c_bread_cinnamon.mdl"
-					}
-					"4"
-					{
-						"skin_red" "0"
-						"skin_blu" "1"
-						"model_player" "models/weapons/c_models/c_bread/c_bread_russianblack.mdl"
-						"player_poseparam"
-						{
-							"r_hand_grip"		"10"
-						}
-						"item_poseparam"
-						{
-							"r_hand_grip"		"10"
-						}
-					}
-					"5"
-					{
-						"skin_red" "0"
-						"skin_blu" "1"
-						"model_player" "models/weapons/c_models/c_bread/c_bread_cornbread.mdl"
-						"player_poseparam"
-						{
-							"r_hand_grip"		"5"
-						}
-						"item_poseparam"
-						{
-							"r_hand_grip"		"5"
-						}
-					}
-					"6"
-					{
-						"skin_red" "0"
-						"skin_blu" "1"
-						"model_player" "models/weapons/c_models/c_bread/c_bread_pretzel.mdl"
-						"player_poseparam"
-						{
-							"r_hand_grip"		"6"
-						}
-						"item_poseparam"
-						{
-							"r_hand_grip"		"6"
-						}
-					}
-					"7"
-					{
-						"skin_red" "0"
-						"skin_blu" "1"
-						"model_player" "models/weapons/c_models/c_bread/c_bread_crumpet.mdl"
-						"player_poseparam"
-						{
-							"r_hand_grip"		"7"
-						}
-						"item_poseparam"
-						{
-							"r_hand_grip"		"7"
-						}
-					}
-					"8"
-					{
-						"skin_red" "0"
-						"skin_blu" "1"
-						"model_player" "models/weapons/c_models/c_bread/c_bread_baguette.mdl"
-						"player_poseparam"
-						{
-							"r_hand_grip"		"2"
-						}
-						"item_poseparam"
-						{
-							"r_hand_grip"		"2"
-						}
-					}
-				}
-				"sound_deploy"	"Weapon_ToolBox.Draw"
-				"sound_single_shot"	"Passtime.Throw"
-				"sound_special1"		"Carpet.Impact"  
-			}
-		}
-		//PDA TEST
-		"32003"
-		{
-			"name"	"TF_WEAPON_PDA_BUILD_MINIDISPENSER"
-			"capabilities"
-			{
-				"nameable"		"1"
-			}
-			"first_sale_date"	"2010/09/29"
-			"item_class"	"tf_weapon_pda_engineer_build"
-			"craft_class"	"weapon"
-			"craft_material_type"	"weapon"
-			"item_name"	"#TFCW_HandyPartner"
-			"item_type_name"	"#TF_Weapon_PDA_Engineer"
-			"item_slot"	"pda"
-			"item_quality"	"unique"
-			"moditem" "1"
-			"min_ilevel"	"1"
-			"max_ilevel"	"1"
-			"attach_to_hands" "1"
-			"image_inventory"	"backpack/weapons/custommade/c_pda_minidisp"
-			"image_inventory_size_w"		"128"
-			"image_inventory_size_h"		"82"
-			"model_player"	"models/weapons/c_models/c_minibuilder/c_minibuilder.mdl"
-			"used_by_classes"
-			{
-				"engineer"	"1"
-			}
-			"static_attrs"
-			{
-				"min_viewmodel_offset"					"10 0 -10"				
-			}
-			"attributes"
-			{
-				"mod pda builds minidispenser"
-				{
-					"attribute_class"	"pda_builds_minidispenser"
-					"value"	"1"
-				}
-				"kill eater score type"
-				{
-					"attribute_class"	"kill_eater_score_type"
-					"value" 	"3" 
-				}
-				"kill eater score type 2"
-				{
-					"attribute_class"	"kill_eater_score_type_2"
-					"value" 	"59" 
-				}
-				"kill eater score type 3"
-				{
-					"attribute_class"	"kill_eater_score_type_3"
-					"value" 	"60" 
-				}
-			}
-			"mouse_pressed_sound"	"ui/item_metal_weapon_pickup.wav"
-			"drop_sound"		"ui/item_metal_weapon_drop.wav"
-			"visuals"
-			{
-				"animation_replacement"
-				{
-					"ACT_VM_IDLE"	"ACT_ENGINEER_PDA2_VM_IDLE"
-					"ACT_VM_DRAW"	"ACT_ENGINEER_PDA2_VM_DRAW"
-				}
-			}
-		}
 		//VEGETABLE WRENCH
 		"32002"
 		{
@@ -1594,6 +1417,73 @@
 			"mouse_pressed_sound"	"ui/item_metal_weapon_pickup.wav"
 			"drop_sound"		"ui/item_metal_weapon_drop.wav"
 		}
+		//PDA TEST
+		"32003"
+		{
+			"name"	"TF_WEAPON_PDA_BUILD_MINIDISPENSER"
+			"capabilities"
+			{
+				"nameable"		"1"
+			}
+			"first_sale_date"	"2010/09/29"
+			"item_class"	"tf_weapon_pda_engineer_build"
+			"craft_class"	"weapon"
+			"craft_material_type"	"weapon"
+			"item_name"	"#TFCW_HandyPartner"
+			"item_type_name"	"#TF_Weapon_PDA_Engineer"
+			"item_slot"	"pda"
+			"item_quality"	"unique"
+			"moditem" "1"
+			"min_ilevel"	"1"
+			"max_ilevel"	"1"
+			"attach_to_hands" "1"
+			"image_inventory"	"backpack/weapons/custommade/c_pda_minidisp"
+			"image_inventory_size_w"		"128"
+			"image_inventory_size_h"		"82"
+			"model_player"	"models/weapons/c_models/c_minibuilder/c_minibuilder.mdl"
+			"used_by_classes"
+			{
+				"engineer"	"1"
+			}
+			"static_attrs"
+			{
+				"min_viewmodel_offset"					"10 0 -10"				
+			}
+			"attributes"
+			{
+				"mod pda builds minidispenser"
+				{
+					"attribute_class"	"pda_builds_minidispenser"
+					"value"	"1"
+				}
+				"kill eater score type"
+				{
+					"attribute_class"	"kill_eater_score_type"
+					"value" 	"3" 
+				}
+				"kill eater score type 2"
+				{
+					"attribute_class"	"kill_eater_score_type_2"
+					"value" 	"59" 
+				}
+				"kill eater score type 3"
+				{
+					"attribute_class"	"kill_eater_score_type_3"
+					"value" 	"60" 
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_metal_weapon_pickup.wav"
+			"drop_sound"		"ui/item_metal_weapon_drop.wav"
+			"visuals"
+			{
+				"animation_replacement"
+				{
+					"ACT_VM_IDLE"	"ACT_ENGINEER_PDA2_VM_IDLE"
+					"ACT_VM_DRAW"	"ACT_ENGINEER_PDA2_VM_DRAW"
+				}
+			}
+		}
+		//Baleful beacon
 		"32004"
 		{
 			"name"	"TF_WEAPON_TORCHLIGHT"
@@ -1704,6 +1594,286 @@
 			}
 			"mouse_pressed_sound"	"ui/item_heavy_gun_pickup.wav"
 			"drop_sound"		"ui/item_heavy_gun_drop.wav"
+		}
+		// Throwable Bread
+		"32006"
+		{
+			"name"	"Bread Scout"
+			"item_name" "#TF_Throwable_Bread"
+			"item_type_name" "#TF_Throwable_Type_Bread"
+			"prefab"	"weapon_throwable"
+			"model_player" "models/weapons/c_models/c_bread/c_bread_plainloaf.mdl"
+			"image_inventory"	"backpack/weapons/custommade/c_baleful_beacon"
+			"attributes"
+			{
+				"projectile entity name"
+				{
+					"attribute_class"	"projectile_entity_name"
+					"value"				"tf_projectile_throwable_brick" 
+				}
+			}
+			"visuals"
+			{
+				"sound_deploy"	"Weapon_ToolBox.Draw"
+				"sound_single_shot"	"Passtime.Throw"
+				"sound_special1"		"Carpet.Impact"  
+				"player_poseparam"
+				{
+					"r_hand_grip"		"10"
+				}
+				"item_poseparam"
+				{
+					"r_hand_grip"		"10"
+				}
+			}
+		}
+		"32007"
+		{
+			"name"	"Bread Soldier"
+			"item_name" "#TF_Throwable_Bread"
+			"item_type_name" "#TF_Throwable_Type_Bread"
+			"prefab"	"weapon_throwable"
+			"model_player" "models/weapons/c_models/c_bread/c_bread_ration.mdl"
+			"image_inventory"	"backpack/weapons/custommade/c_baleful_beacon"
+			"attributes"
+			{
+				"projectile entity name"
+				{
+					"attribute_class"	"projectile_entity_name"
+					"value"				"tf_projectile_throwable_brick" 
+				}
+			}
+			"visuals"
+			{
+				"sound_deploy"	"Weapon_ToolBox.Draw"
+				"sound_single_shot"	"Passtime.Throw"
+				"sound_special1"		"Carpet.Impact"  
+				"player_poseparam"
+				{
+					"r_hand_grip"		"8"
+				}
+				"item_poseparam"
+				{
+					"r_hand_grip"		"8"
+				}
+			}
+		}
+		"32008"
+		{
+			"name"	"Bread Pyro"
+			"item_name" "#TF_Throwable_Bread"
+			"item_type_name" "#TF_Throwable_Type_Bread"
+			"prefab"	"weapon_throwable"
+			"model_player" "models/weapons/c_models/c_bread/c_bread_burnt.mdl"
+			"image_inventory"	"backpack/weapons/custommade/c_baleful_beacon"
+			"attributes"
+			{
+				"projectile entity name"
+				{
+					"attribute_class"	"projectile_entity_name"
+					"value"				"tf_projectile_throwable_brick" 
+				}
+			}
+			"visuals"
+			{
+				"sound_deploy"	"Weapon_ToolBox.Draw"
+				"sound_single_shot"	"Passtime.Throw"
+				"sound_special1"		"Carpet.Impact"  
+				"player_poseparam"
+				{
+					"r_hand_grip"		"4"
+				}
+				"item_poseparam"
+				{
+					"r_hand_grip"		"4"
+				}
+			}
+		}
+		"32009"
+		{
+			"name"	"Bread Demo"
+			"item_name" "#TF_Throwable_Bread"
+			"item_type_name" "#TF_Throwable_Type_Bread"
+			"prefab"	"weapon_throwable"
+			"model_player" "models/weapons/c_models/c_bread/c_bread_cinnamon.mdl"
+			"image_inventory"	"backpack/weapons/custommade/c_baleful_beacon"
+			"attributes"
+			{
+				"projectile entity name"
+				{
+					"attribute_class"	"projectile_entity_name"
+					"value"				"tf_projectile_throwable_brick" 
+				}
+			}
+			"visuals"
+			{
+				"sound_deploy"	"Weapon_ToolBox.Draw"
+				"sound_single_shot"	"Passtime.Throw"
+				"sound_special1"		"Carpet.Impact"  
+				"player_poseparam"
+				{
+					"r_hand_grip"		"4"
+				}
+				"item_poseparam"
+				{
+					"r_hand_grip"		"4"
+				}
+			}
+		}
+		"32010"
+		{
+			"name"	"Bread Heavy"
+			"item_name" "#TF_Throwable_Bread"
+			"item_type_name" "#TF_Throwable_Type_Bread"
+			"prefab"	"weapon_throwable"
+			"model_player" "models/weapons/c_models/c_bread/c_bread_russianblack.mdl"
+			"image_inventory"	"backpack/weapons/custommade/c_baleful_beacon"
+			"attributes"
+			{
+				"projectile entity name"
+				{
+					"attribute_class"	"projectile_entity_name"
+					"value"				"tf_projectile_throwable_brick" 
+				}
+			}
+			"visuals"
+			{
+				"sound_deploy"	"Weapon_ToolBox.Draw"
+				"sound_single_shot"	"Passtime.Throw"
+				"sound_special1"		"Carpet.Impact"  
+				"player_poseparam"
+				{
+					"r_hand_grip"		"10"
+				}
+				"item_poseparam"
+				{
+					"r_hand_grip"		"10"
+				}
+			}
+		}
+		"32011"
+		{
+			"name"	"Bread Engineer"
+			"item_name" "#TF_Throwable_Bread"
+			"item_type_name" "#TF_Throwable_Type_Bread"
+			"prefab"	"weapon_throwable"
+			"model_player" "models/weapons/c_models/c_bread/c_bread_cornbread.mdl"
+			"image_inventory"	"backpack/weapons/custommade/c_baleful_beacon"
+			"attributes"
+			{
+				"projectile entity name"
+				{
+					"attribute_class"	"projectile_entity_name"
+					"value"				"tf_projectile_throwable_brick" 
+				}
+			}
+			"visuals"
+			{
+				"sound_deploy"	"Weapon_ToolBox.Draw"
+				"sound_single_shot"	"Passtime.Throw"
+				"sound_special1"		"Carpet.Impact"  
+				"player_poseparam"
+				{
+					"r_hand_grip"		"5"
+				}
+				"item_poseparam"
+				{
+					"r_hand_grip"		"5"
+				}
+			}
+		}
+		"32012"
+		{
+			"name"	"Bread Medic"
+			"item_name" "#TF_Throwable_Bread"
+			"item_type_name" "#TF_Throwable_Type_Bread"
+			"prefab"	"weapon_throwable"
+			"model_player" "models/weapons/c_models/c_bread/c_bread_pretzel.mdl"
+			"image_inventory"	"backpack/weapons/custommade/c_baleful_beacon"
+			"attributes"
+			{
+				"projectile entity name"
+				{
+					"attribute_class"	"projectile_entity_name"
+					"value"				"tf_projectile_throwable_brick" 
+				}
+			}
+			"visuals"
+			{
+				"sound_deploy"	"Weapon_ToolBox.Draw"
+				"sound_single_shot"	"Passtime.Throw"
+				"sound_special1"		"Carpet.Impact"  
+				"player_poseparam"
+				{
+					"r_hand_grip"		"6"
+				}
+				"item_poseparam"
+				{
+					"r_hand_grip"		"6"
+				}
+			}
+		}
+		"32013"
+		{
+			"name"	"Bread Sniper"
+			"item_name" "#TF_Throwable_Bread"
+			"item_type_name" "#TF_Throwable_Type_Bread"
+			"prefab"	"weapon_throwable"
+			"model_player" "models/weapons/c_models/c_bread/c_bread_crumpet.mdl"
+			"image_inventory"	"backpack/weapons/custommade/c_baleful_beacon"
+			"attributes"
+			{
+				"projectile entity name"
+				{
+					"attribute_class"	"projectile_entity_name"
+					"value"				"tf_projectile_throwable_brick" 
+				}
+			}
+			"visuals"
+			{
+				"sound_deploy"	"Weapon_ToolBox.Draw"
+				"sound_single_shot"	"Passtime.Throw"
+				"sound_special1"		"Carpet.Impact"  
+				"player_poseparam"
+				{
+					"r_hand_grip"		"6"
+				}
+				"item_poseparam"
+				{
+					"r_hand_grip"		"6"
+				}
+			}
+		}
+		"32014"
+		{
+			"name"	"Bread Spy"
+			"item_name" "#TF_Throwable_Bread"
+			"item_type_name" "#TF_Throwable_Type_Bread"
+			"prefab"	"weapon_throwable"
+			"model_player" "models/weapons/c_models/c_bread/c_bread_baguette.mdl"
+			"image_inventory"	"backpack/weapons/custommade/c_baleful_beacon"
+			"attributes"
+			{
+				"projectile entity name"
+				{
+					"attribute_class"	"projectile_entity_name"
+					"value"				"tf_projectile_throwable_brick" 
+				}
+			}
+			"visuals"
+			{
+				"sound_deploy"	"Weapon_ToolBox.Draw"
+				"sound_single_shot"	"Passtime.Throw"
+				"sound_special1"		"Carpet.Impact"  
+				"player_poseparam"
+				{
+					"r_hand_grip"		"2"
+				}
+				"item_poseparam"
+				{
+					"r_hand_grip"		"2"
+				}
+			}
 		}
 		// WARPAINT ITEMS
 		"34000" 
