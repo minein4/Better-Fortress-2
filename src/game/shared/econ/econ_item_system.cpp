@@ -744,6 +744,8 @@ void CEconItemSystem::ReloadAllSchemas()
     }
 }
 
+// Why does this command show up as 2 commands in the console?
+// I  never figured out how it doesnt work when its defined as client or a server command so its just a global command or smth.
 CON_COMMAND_F(cl_reload_item_schema, "Reloads all item schema files from disk.", FCVAR_CHEAT)
 {
 	Msg("Reloading all item schemas from disk. This may take a while.\n");
